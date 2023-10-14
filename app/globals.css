@@ -7,3 +7,43 @@
   padding: 0;
   box-sizing: border-box;
 }
+
+body {
+  background-color: #ffffff;
+}
+
+.icon {
+  position: relative;
+  display: block;
+  width: 25px;
+  height: 25px;
+}
+
+.icon::after {
+  content: "0";
+  font-size: 10px;
+  text-align: center;
+  font-weight: 700;
+  color: #ffffff;
+  position: absolute;
+  top: 0;
+  right: -5px;
+  background-color: #2959c2;
+  border-radius: 50%;
+  width: 15px;
+  height: 15px;
+}
+
+.categoryNav {
+  animation-name: categoryMobile;
+  animation-duration: 0.5s;
+}
+
+@keyframes categoryMobile {
+  from {
+    height: 0;
+  }
+  to {
+    height: 50vh;
+  }
+}
