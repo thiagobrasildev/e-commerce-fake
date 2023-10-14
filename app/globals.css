@@ -34,16 +34,33 @@ body {
   height: 15px;
 }
 
-.categoryNav {
-  animation-name: categoryMobile;
-  animation-duration: 0.5s;
+.slideHero {
+  height: 100%;
+  width: 100%;
+  background-image: url(../public/slide-woman.jpg);
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  /* transition: all 20s; */
+
+  animation-name: slideHero;
+  /* animation-direction: alternate-reverse;
+  animation-play-state: running;
+  animation-timing-function: ease-in-out; */
+  animation-duration: 1s;
+  /* animation-fill-mode: forwards; */
+  animation-iteration-count: infinite;
+  animation-delay: 10s;
 }
 
-@keyframes categoryMobile {
-  from {
-    height: 0;
+@keyframes slideHero {
+  0% {
+    background-image: url(../public/slide-woman.jpg);
   }
-  to {
-    height: 50vh;
+  100% {
+    background-image: url(../public/slide-man.jpg);
   }
+  /* 100% {
+    background-image: url(../public/slide-woman.jpg);
+  } */
 }

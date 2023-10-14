@@ -21,7 +21,7 @@ const Hero = () => {
         </div>
       </div>
 
-      <div className="flex w-full">
+      <div className="flex w-full h-auto justify-end">
         <SlideHero />
       </div>
     </section>

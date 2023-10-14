@@ -22,7 +22,7 @@ const NavCategory = () => {
   }, []);
 
   return (
-    <nav className="flex w-full pt-[1px] flex-col transition-all sm:max-w-[30%] absolute max-w-[95%]">
+    <nav className="flex w-full pt-[1px] flex-col transition-all sm:max-w-[30%] lg:max-w-[20%] absolute max-w-[95%] z-30">
       <div
         onClick={() => setIsOpen((isOpen) => !isOpen)}
         className="flex w-full justify-between items-center bg-primary text-white p-3 rounded-t-md"
@@ -35,7 +35,7 @@ const NavCategory = () => {
         animate={isOpen ? "open" : "closed"}
         variants={variants}
         initial={false}
-        className={`flex flex-col w-full h-[50vh] border-primary border-2 flex-nowrap overflow-scroll bg-white`}
+        className={`flex flex-col w-full h-[50vh] sm:h-auto border-primary border-2 flex-nowrap overflow-y-scroll overflow-x-hidden bg-white`}
       >
         {category.map((item, index) => (
           <span
