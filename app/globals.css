@@ -34,9 +34,9 @@ body {
   height: 15px;
 }
 
-.animCategoryNav {
+.categoryNav {
   animation-name: categoryMobile;
-  animation-duration: 0.3s;
+  animation-duration: 0.5s;
 }
 
 @keyframes categoryMobile {

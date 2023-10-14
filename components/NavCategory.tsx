@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
 // icons
 import { FaAngleDown, FaAngleRight } from "react-icons/fa";
 
@@ -17,8 +17,12 @@ const variants = {
 const NavCategory = () => {
   const [isOpen, setIsOpen] = useState(false);
 
+  useEffect(() => {
+    setIsOpen(false);
+  }, []);
+
   return (
-    <nav className="flex w-full pt-[1px] flex-col transition-all">
+    <nav className="flex w-full pt-[1px] flex-col transition-all sm:max-w-[30%] absolute max-w-[95%]">
       <div
         onClick={() => setIsOpen((isOpen) => !isOpen)}
         className="flex w-full justify-between items-center bg-primary text-white p-3 rounded-t-md"
@@ -30,7 +34,8 @@ const NavCategory = () => {
       <motion.div
         animate={isOpen ? "open" : "closed"}
         variants={variants}
-        className={`flex flex-col w-full h-[50vh] border-primary border-2 flex-nowrap overflow-scroll`}
+        initial={false}
+        className={`flex flex-col w-full h-[50vh] border-primary border-2 flex-nowrap overflow-scroll bg-white`}
       >
         {category.map((item, index) => (
           <span
