@@ -8,3 +8,26 @@ export const category = [
   "Vestidos",
   "Outras categorias",
 ];
+
+export const menu = [
+  {
+    title: "Home",
+    href: "/",
+  },
+  {
+    title: "Loja",
+    href: "/loja",
+  },
+  {
+    title: "Redes Sociais",
+    href: "/redes-socias",
+  },
+  {
+    title: "Atalhos",
+    href: "/atalhos",
+  },
+  {
+    title: "Mais",
+    href: "/mais",
+  },
+];
