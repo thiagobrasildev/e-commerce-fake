@@ -19,6 +19,10 @@ body {
   height: 25px;
 }
 
+svg.star-svg {
+  display: inline;
+}
+
 .activeLink {
   color: #2959c2;
 }
@@ -38,33 +42,10 @@ body {
   height: 15px;
 }
 
-.slideHero {
-  height: 100%;
-  width: 100%;
-  background-image: url(../public/slide-woman.jpg);
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
-  /* transition: all 20s; */
-
-  animation-name: slideHero;
-  /* animation-direction: alternate-reverse;
-  animation-play-state: running;
-  animation-timing-function: ease-in-out; */
-  animation-duration: 1s;
-  /* animation-fill-mode: forwards; */
-  animation-iteration-count: infinite;
-  animation-delay: 10s;
+.carrossel {
+  scroll-behavior: smooth;
 }
 
-@keyframes slideHero {
-  0% {
-    background-image: url(../public/slide-woman.jpg);
-  }
-  100% {
-    background-image: url(../public/slide-man.jpg);
-  }
-  /* 100% {
-    background-image: url(../public/slide-woman.jpg);
-  } */
+.carrossel::-webkit-scrollbar {
+  display: none;
 }

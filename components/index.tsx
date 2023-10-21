@@ -12,6 +12,9 @@ import ProductsSale from "./Section_Products_Sale/ProductsSale";
 import Newsletter from "./Section_Newsletter/Newsletter";
 import Footer from "./Footer/Footer";
 import MenuMobile from "./Menu/MenuMobile";
+import ProductCard from "./ProductCard/ProductCard";
+import Phone from "./ui/Phone";
+import Filter from "./ui/Filter";
 
 export {
   Header,
@@ -28,4 +31,7 @@ export {
   Newsletter,
   Footer,
   MenuMobile,
+  ProductCard,
+  Phone,
+  Filter,
 };
