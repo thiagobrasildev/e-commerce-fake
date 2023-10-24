@@ -40,18 +40,18 @@ export const menu = [
   },
   {
     title: "Loja",
-    href: "/loja",
+    href: "/",
   },
   {
     title: "Redes Sociais",
-    href: "/redes-socias",
+    href: "/",
   },
   {
     title: "Atalhos",
-    href: "/atalhos",
+    href: "/",
   },
   {
     title: "Mais",
-    href: "/mais",
+    href: "/",
   },
 ];

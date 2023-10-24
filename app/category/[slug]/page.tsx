@@ -138,18 +138,10 @@ const Category = () => {
 
         <div className="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-5 w-full py-10 h-auto">
           {category &&
-            category.map((item) => (
-              <Link href={`/product/${item.id}`} key={item.id}>
-                <ProductCard product={item} />
-              </Link>
-            ))}
+            category.map((item) => <ProductCard product={item} key={item.id} />)}
 
           {categoryPrice &&
-            categoryPrice.map((item) => (
-              <Link href={`/product/${item.id}`} key={item.id}>
-                <ProductCard product={item} />
-              </Link>
-            ))}
+            categoryPrice.map((item) => <ProductCard product={item} key={item.id} />)}
         </div>
       </div>
     </section>
