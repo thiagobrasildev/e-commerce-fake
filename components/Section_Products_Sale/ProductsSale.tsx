@@ -53,15 +53,7 @@ const ProductsSale = () => {
       </div>
       <div className="py-4 flex gap-5 overflow-x-scroll carrossel" ref={carrosel}>
         {products.map((item) => (
-          <Link href={`/product/${item.id}`} key={item.id}>
-            <ProductCard
-              name={item.title}
-              price={item.price}
-              imageUrl={item.image}
-              rating={item.rating.rate}
-              key={item.id}
-            />
-          </Link>
+          <ProductCard product={item} key={item.id} />
         ))}
       </div>
     </section>

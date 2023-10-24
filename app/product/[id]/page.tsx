@@ -5,7 +5,7 @@ import MenuDesktop from "@/components/Menu/MenuDesktop";
 import QuantityProduct from "@/components/ui/QuantityProduct";
 import Image from "next/image";
 
-import React, { useEffect, useRef, useState } from "react";
+import React, { useEffect, useRef, useState, useContext } from "react";
 import { Rating } from "react-simple-star-rating";
 
 // types
@@ -16,13 +16,19 @@ import { getProducts } from "@/api/FakeStore";
 import { getSingleProducts } from "@/api/FakeStore";
 import { useParams } from "next/navigation";
 import Link from "next/link";
+import AddCartButton from "@/components/ui/AddCartButton";
+import { CartContext } from "@/context/CartProvider";
 
 const SingleProduct = () => {
+  const { addProductsToCart } = useContext(CartContext);
+
   const [products, setProducts] = useState<IProducts[]>([]);
   const [product, setProduct] = useState<IProducts>();
   const carrosel = useRef<HTMLDivElement>(null);
   const params = useParams();
   const nameProduct = params.id;
+  const cartProduct = { ...product! };
+  const [quantity, setQuantity] = useState(1);
 
   // Single Product
   useEffect(() => {
@@ -62,6 +68,10 @@ const SingleProduct = () => {
       carrosel.current.scrollLeft -= 600;
     }
   };
+
+  const handleAddToCart = () => {
+    addProductsToCart({ ...cartProduct, quantity: quantity });
+  };
   return (
     <section className="w-full flex-1 min-h-[600px] flex justify-center">
       <div className="flex flex-col w-full max-w-[1140px] px-3 lg:px-0 pb-10 overflow-hidden">
@@ -100,16 +110,21 @@ const SingleProduct = () => {
                 allowFraction
               />
             </span>
-            <h2 className="text-primary text-lg font-semibold py-4">R$ 150,00</h2>
+            <h2 className="text-primary text-lg font-semibold py-4">
+              R$ {product?.price}
+            </h2>
             <div className="text-fontColor/80 pb-4">
               <p className="">{product?.description}</p>
             </div>
             <div className="w-full py-4 flex gap-2 sm:gap-0">
-              <QuantityProduct />
+              <QuantityProduct quantity={quantity} setQuantity={setQuantity} />
               <div className="flex flex-1 min-w-[85%]">
-                <button className="bg-primary text-white rounded-3xl px-4 sm:w-[40%]">
-                  Adicionar ao carrinho
-                </button>
+                <AddCartButton
+                  titleActive="Adicionar ao carrinho"
+                  titleDisable="Adicionado"
+                  containerClass="bg-primary text-white rounded-3xl px-4 sm:w-[40%] hover:bg-primary/90"
+                  handleClick={handleAddToCart}
+                />
               </div>
             </div>
           </div>
@@ -125,14 +140,7 @@ const SingleProduct = () => {
 
           <div className="py-4 flex gap-5 overflow-x-scroll carrossel" ref={carrosel}>
             {products.map((item) => (
-              <Link href={`/product/${item.id}`} key={item.id}>
-                <ProductCard
-                  name={item.title}
-                  price={item.price}
-                  imageUrl={item.image}
-                  rating={item.rating.rate}
-                />
-              </Link>
+              <ProductCard product={item} key={item.id} />
             ))}
           </div>
         </div>

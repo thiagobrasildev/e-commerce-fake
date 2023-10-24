@@ -134,32 +134,20 @@ const Category = () => {
           <h2 className="text-fontColor font-semibold text-lg">
             Categoria/<span>{changeParams()}</span>
           </h2>
-          <Filter />
         </div>
 
         <div className="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-5 w-full py-10 h-auto">
           {category &&
             category.map((item) => (
               <Link href={`/product/${item.id}`} key={item.id}>
-                <ProductCard
-                  name={item.title}
-                  price={item.price}
-                  imageUrl={item.image}
-                  rating={item.rating.rate}
-                />
+                <ProductCard product={item} />
               </Link>
             ))}
 
           {categoryPrice &&
             categoryPrice.map((item) => (
               <Link href={`/product/${item.id}`} key={item.id}>
-                <ProductCard
-                  name={item.title}
-                  price={item.price}
-                  imageUrl={item.image}
-                  rating={item.rating.rate}
-                  key={item.id}
-                />
+                <ProductCard product={item} />
               </Link>
             ))}
         </div>

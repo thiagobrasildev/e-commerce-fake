@@ -2,6 +2,7 @@ import { Header, Footer } from "@/components";
 import "./globals.css";
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
+import { CardProvider } from "@/context/CartProvider";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -14,9 +15,11 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
   return (
     <html lang="en">
       <body className={inter.className}>
-        <Header />
-        {children}
-        <Footer />
+        <CardProvider>
+          <Header />
+          {children}
+          <Footer />
+        </CardProvider>
       </body>
     </html>
   );

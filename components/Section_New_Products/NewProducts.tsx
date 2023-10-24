@@ -80,26 +80,8 @@ const NewProducts = () => {
       </div>
       <div className="py-4 flex gap-5 overflow-x-scroll carrossel" ref={carrosel}>
         {changeProduct
-          ? productsNew.map((item) => (
-              <Link href={`/product/${item.id}`} key={item.id}>
-                <ProductCard
-                  name={item.title}
-                  price={item.price}
-                  imageUrl={item.image}
-                  rating={item.rating.rate}
-                />
-              </Link>
-            ))
-          : productsBest.map((item) => (
-              <Link href={`/product/${item.id}`} key={item.id}>
-                <ProductCard
-                  name={item.title}
-                  price={item.price}
-                  imageUrl={item.image}
-                  rating={item.rating.rate}
-                />
-              </Link>
-            ))}
+          ? productsNew.map((item) => <ProductCard product={item} key={item.id} />)
+          : productsBest.map((item) => <ProductCard product={item} key={item.id} />)}
       </div>
     </section>
   );

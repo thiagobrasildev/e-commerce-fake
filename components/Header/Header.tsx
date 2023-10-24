@@ -8,9 +8,11 @@ import { FaShoppingCart } from "react-icons/fa";
 import { MenuMobile, SearchBar, UserIcons } from "..";
 import { GiHamburgerMenu } from "react-icons/gi";
 import Link from "next/link";
+import CartModal from "../ui/CartModal";
 
 const Header = () => {
   const [isOpen, setIsOpen] = useState<boolean>(false);
+  const [isOpenCart, setIsOpenCart] = useState<boolean>(false);
 
   return (
     <header className="flex px-3 py-6 justify-start md:justify-center items-center border-b-[1px] border-gray-200">
@@ -32,12 +34,13 @@ const Header = () => {
             <SearchBar />
           </div>
           <div>
-            <UserIcons />
+            <UserIcons onClick={() => setIsOpenCart(true)} />
           </div>
         </div>
       </div>
 
       {isOpen ? <MenuMobile isOpen={isOpen} setIsOpen={setIsOpen} /> : null}
+      {isOpenCart ? <CartModal isOpen={isOpenCart} setIsOpen={setIsOpenCart} /> : null}
     </header>
   );
 };

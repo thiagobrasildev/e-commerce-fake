@@ -1,16 +1,29 @@
-import React from "react";
+"use client";
+
+import React, { useContext } from "react";
 // icons
 import { FaRegUser, FaRegHeart } from "react-icons/fa";
 import { BsCart3 } from "react-icons/bs";
+import { CartContext } from "@/context/CartProvider";
 
-const UserIcons = () => {
+type UserIconsProps = {
+  onClick?: () => void;
+};
+
+const UserIcons = ({ onClick }: UserIconsProps) => {
+  const { products } = useContext(CartContext);
+
+  const totalItemInCart = products.length;
   return (
     <div className="flex gap-4">
       <FaRegUser size={25} />
       <div className="icon">
         <FaRegHeart size={25} />
       </div>
-      <div className="icon">
+      <div className="icon relative" onClick={onClick}>
+        <span className="absolute top-0 right-[-5px] text-[10px] font-semibold text-center rounded-full bg-primary text-white p-2 justify-center items-center flex w-[10px] h-[10px]">
+          {totalItemInCart}
+        </span>
         <BsCart3 size={25} />
       </div>
     </div>
