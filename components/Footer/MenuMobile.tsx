@@ -14,6 +14,7 @@ const MenuMobile = ({ title, children }: MenuMobileProps) => {
   return (
     <div className="flex flex-col w-full">
       <div
+        id="click"
         className="flex items-center justify-between w-full py-2"
         onClick={() => setIsOpen(!isOpen)}
       >
@@ -22,7 +23,11 @@ const MenuMobile = ({ title, children }: MenuMobileProps) => {
           <FaAngleDown />
         </span>
       </div>
-      {isOpen && <div className="py-3">{children}</div>}
+      {isOpen && (
+        <div id="content" className="py-3">
+          {children}
+        </div>
+      )}
     </div>
   );
 };
